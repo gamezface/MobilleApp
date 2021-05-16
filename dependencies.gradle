@@ -1,0 +1,69 @@
+ext {
+    kotlinVersion = '1.3.72'
+    dagger_version = "2.28"
+    android_arch_version = "1.1.1"
+    nav_version = "2.3.0"
+    support_version = "28.0.0"
+    kotlin_version = '1.4.10'
+    lifecycle_version = "2.2.0"
+    retrofit_version = "2.6.0"
+
+    //Android
+    androidMinSdkVersion = 21
+    androidTargetSdkVersion = 29
+    androidCompileSdkVersion = 29
+    androidApplicationId = 'com.gamezface.mobileapp'
+    androidVersionCode = 1
+    androidVersionName = '1.0.0'
+
+    //Libraries
+
+    appDependencies = [
+            coreKtx: 'androidx.core:core-ktx:1.3.2',
+            appCompat: 'androidx.appcompat:appcompat:1.2.0',
+            constraintLayout: 'androidx.constraintlayout:constraintlayout:2.0.4',
+            swipeRefreshLayout: 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0',
+            kotlinStdlib: "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version",
+            material: 'com.google.android.material:material:1.3.0',
+
+
+            //Jetpack
+            lifecycleViewModelKtx: "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version",
+            lifecycleLiveDataKtx: "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version",
+            lifecycleRuntimeKtx: "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycle_version",
+            lifecycleViewModelSavedState: "androidx.lifecycle:lifecycle-viewmodel-savedstate:$lifecycle_version",
+            lifecycleCompiler: "androidx.lifecycle:lifecycle-compiler:$lifecycle_version",
+            navigationFragmentKtx: "androidx.navigation:navigation-fragment-ktx:$nav_version",
+            navigationUiKtx: "androidx.navigation:navigation-ui-ktx:$nav_version",
+
+            //Coroutines
+            coroutines: 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.9',
+
+            // Dagger
+            dagger: "com.google.dagger:dagger:$dagger_version",
+            daggerCompiler: "com.google.dagger:dagger-compiler:$dagger_version",
+
+            //Glide
+            glide: 'com.github.bumptech.glide:glide:4.12.0',
+            glideCompiler: 'com.github.bumptech.glide:compiler:4.12.0'
+    ]
+
+    serviceDependencies = [
+            //Retrofit
+            gson: 'com.google.code.gson:gson:2.8.5',
+            retrofit: "com.squareup.retrofit2:retrofit:$retrofit_version",
+            retrofitConverter: "com.squareup.retrofit2:converter-gson:$retrofit_version",
+
+            //OkHttp
+            okHttp: 'com.squareup.okhttp3:okhttp:3.14.0',
+            okHttpLog: 'com.squareup.okhttp3:logging-interceptor:3.12.0',
+    ]
+
+    testDependencies = [
+            // Test
+            jUnit: 'junit:junit:4.13',
+            extJUnit: 'androidx.test.ext:junit:1.1.1',
+            coreTesting: "android.arch.core:core-testing:$android_arch_version",
+            core: 'androidx.test:core:1.3.0',
+    ]
+}

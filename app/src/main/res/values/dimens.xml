@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- MARGIN -->
+    <dimen name="margin_xxsmall">4dp</dimen>
+    <dimen name="margin_xsmall">8dp</dimen>
+    <dimen name="margin_small">16dp</dimen>
+    <dimen name="margin_normal">24dp</dimen>
+    <dimen name="margin_medium">32dp</dimen>
+    <dimen name="margin_large">40dp</dimen>
+
+    <!-- PADDING -->
+    <dimen name="padding_xsmall">8dp</dimen>
+    <dimen name="padding_small">16dp</dimen>
+    <dimen name="padding_normal">24dp</dimen>
+    <dimen name="padding_medium">32dp</dimen>
+    <dimen name="padding_large">40dp</dimen>
+
+    <dimen name="card_elevation_xxsmall">4dp</dimen>
+    <dimen name="card_corner_radius">16dp</dimen>
+
+    <dimen name="location_image_height">300dp</dimen>
+
+    <dimen name="location_thumbnails_fixed_size">60dp</dimen>
+</resources>

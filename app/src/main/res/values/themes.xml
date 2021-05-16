@@ -1,0 +1,10 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.MobileApp" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="colorPrimary">@color/topaz</item>
+        <item name="colorSecondary">@color/bright_turquoise</item>
+        <item name="android:windowBackground">@color/white</item>
+        <item name="colorAccent">@color/golden_yellow</item>
+        <item name="colorPrimaryDark">@color/pelorous</item>
+    </style>
+</resources>

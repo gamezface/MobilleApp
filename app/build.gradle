@@ -1,0 +1,110 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+}
+
+kapt {
+    useBuildCache = true
+    javacOptions {
+        option("-Xmaxerrs", 500)
+    }
+}
+def globalConfiguration = rootProject.extensions.getByName("ext")
+
+android {
+    compileSdkVersion globalConfiguration["androidCompileSdkVersion"]
+
+    buildToolsVersion "30.0.3"
+
+    defaultConfig {
+        applicationId = androidApplicationId
+        minSdkVersion androidMinSdkVersion
+        targetSdkVersion androidTargetSdkVersion
+        versionCode = androidVersionCode
+        versionName = androidVersionName
+        vectorDrawables.useSupportLibrary = true
+        multiDexEnabled true
+
+        buildConfigField "String", "BASE_URL", "\"\""
+        buildConfigField "String", "IMAGE_API_URL", "\"\""
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildFeatures {
+        viewBinding true
+    }
+
+    buildTypes {
+
+        def url_prefix = 'hotmart-mobile-app.herokuapp'
+        def base_url = "\"https://" + url_prefix + ".com/\""
+        def image_api_url = "\"https://picsum.photos/v2/\""
+
+        debug {
+            applicationIdSuffix ".debug"
+            versionNameSuffix "-debug"
+            buildConfigField "String", "BASE_URL", base_url
+            buildConfigField "String", "IMAGE_API_URL", image_api_url
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            buildConfigField "String", "BASE_URL", base_url
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+}
+
+dependencies {
+
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    def appDependencies = rootProject.ext.appDependencies
+    def serviceDependencies = rootProject.ext.serviceDependencies
+    def testDependencies = rootProject.ext.testDependencies
+
+    implementation appDependencies.coreKtx
+    implementation appDependencies.appCompat
+    implementation appDependencies.constraintLayout
+    implementation appDependencies.swipeRefreshLayout
+    implementation appDependencies.kotlinStdlib
+    implementation appDependencies.material
+
+    implementation appDependencies.lifecycleViewModelKtx
+    implementation appDependencies.lifecycleLiveDataKtx
+    implementation appDependencies.lifecycleRuntimeKtx
+    implementation appDependencies.lifecycleViewModelSavedState
+    kapt appDependencies.lifecycleCompiler
+    implementation appDependencies.navigationFragmentKtx
+    implementation appDependencies.navigationUiKtx
+
+    implementation appDependencies.coroutines
+
+    implementation appDependencies.dagger
+    kapt appDependencies.daggerCompiler
+
+    implementation appDependencies.glide
+    annotationProcessor appDependencies.glideCompiler
+
+    implementation serviceDependencies.retrofitConverter
+    implementation serviceDependencies.retrofit
+    implementation serviceDependencies.gson
+
+    implementation serviceDependencies.okHttp
+    implementation serviceDependencies.okHttpLog
+
+    testImplementation testDependencies.jUnit
+    testImplementation testDependencies.coreTesting
+    testImplementation testDependencies.core
+    testImplementation testDependencies.extJUnit
+
+}

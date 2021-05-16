@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="something_went_wrong">Algo deu errado</string>
+    <string name="service_unavailable">Serviço indisponível no momento</string>
+    <string name="try_again">Tentar novamente</string>
+    <string name="ok">OK</string>
+    <string name="map">Mapa</string>
+    <string name="profile">Perfil</string>
+</resources>

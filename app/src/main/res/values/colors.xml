@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="white">#FFFFFFFF</color>
+    <color name="duck_egg_blue">#d0fdef</color>
+    <color name="light_pink">#ffdae1</color>
+    <color name="cream">#fcffb1</color>
+    <color name="aqua_green">#16e5a3</color>
+    <color name="wild_watermelon">#ff5876</color>
+    <color name="bright_turquoise">#13ceda</color>
+    <color name="topaz">#14adb8</color>
+    <color name="pelorous">#0E8189</color>
+    <color name="night_rider">#333333</color>
+    <color name="warm_grey">#999999</color>
+    <color name="brownish_grey">#666666</color>
+    <color name="golden_yellow">#ffc71e</color>
+    <color name="transparent">#000000ff</color>
+</resources>

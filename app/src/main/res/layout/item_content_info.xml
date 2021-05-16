@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/pictureLabelTextView"
+        style="@style/TextAppearance.Body.Bold"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/margin_small"
+        android:text="@string/pictures"
+        android:textColor="@color/topaz"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/locationPicturesRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_xsmall"
+        app:layout_constraintTop_toBottomOf="@id/pictureLabelTextView"
+        tools:itemCount="1"
+        tools:listitem="@layout/item_location_inner_picture" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/aboutLabelTextView"
+        style="@style/TextAppearance.Body.Bold"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/margin_small"
+        android:layout_marginTop="@dimen/margin_small"
+        android:text="@string/about"
+        android:textColor="@color/topaz"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/locationPicturesRecyclerView" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/aboutLocationTextView"
+        style="@style/TextAppearance.Body"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/margin_small"
+        android:layout_marginTop="@dimen/margin_small"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/aboutLabelTextView"
+        tools:text="@tools:sample/lorem" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/clockImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/margin_small"
+        android:layout_marginTop="@dimen/margin_small"
+        android:src="@drawable/ic_time"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/aboutLocationTextView" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/scheduleTextView"
+        style="@style/TextAppearance.Caption.Light"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/margin_small"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/clockImageView"
+        app:layout_constraintTop_toTopOf="@id/clockImageView"
+        tools:text="@tools:sample/lorem" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/phoneImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/margin_small"
+        android:layout_marginTop="@dimen/margin_small"
+        android:src="@drawable/ic_phone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/scheduleTextView" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/phoneTextView"
+        style="@style/TextAppearance.Caption.Light"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/margin_small"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/phoneImageView"
+        app:layout_constraintTop_toTopOf="@id/phoneImageView"
+        tools:text="@tools:sample/lorem" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/pinImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/margin_small"
+        android:layout_marginTop="@dimen/margin_small"
+        android:src="@drawable/ic_pin"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/phoneTextView" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/pinTextView"
+        style="@style/TextAppearance.Caption.Light"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/margin_small"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/pinImageView"
+        app:layout_constraintTop_toTopOf="@id/pinImageView"
+        tools:text="@tools:sample/lorem" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
