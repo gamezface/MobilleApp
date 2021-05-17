@@ -1,117 +1,191 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:clipToPadding="false">
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/pictureLabelTextView"
-        style="@style/TextAppearance.Body.Bold"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/margin_small"
-        android:text="@string/pictures"
-        android:textColor="@color/topaz"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/locationPicturesRecyclerView"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/margin_xsmall"
-        app:layout_constraintTop_toBottomOf="@id/pictureLabelTextView"
-        tools:itemCount="1"
-        tools:listitem="@layout/item_location_inner_picture" />
+        android:layout_height="wrap_content">
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/aboutLabelTextView"
-        style="@style/TextAppearance.Body.Bold"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/margin_small"
-        android:layout_marginTop="@dimen/margin_small"
-        android:text="@string/about"
-        android:textColor="@color/topaz"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/locationPicturesRecyclerView" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/titleBarConstraintLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/topaz"
+            app:layout_constraintTop_toTopOf="parent">
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/aboutLocationTextView"
-        style="@style/TextAppearance.Body"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/margin_small"
-        android:layout_marginTop="@dimen/margin_small"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/aboutLabelTextView"
-        tools:text="@tools:sample/lorem" />
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/locationNameTextView"
+                style="@style/TextAppearance.Body.G.Light"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_small"
+                android:layout_marginTop="@dimen/margin_small"
+                android:textColor="@color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="@tools:sample/full_names" />
 
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/clockImageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/margin_small"
-        android:layout_marginTop="@dimen/margin_small"
-        android:src="@drawable/ic_time"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/aboutLocationTextView" />
+            <androidx.appcompat.widget.AppCompatRatingBar
+                android:id="@+id/locationReviewRatingBar"
+                style="@style/Widget.AppCompat.RatingBar.Small"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_small"
+                android:layout_marginTop="@dimen/margin_xsmall"
+                android:layout_marginBottom="@dimen/margin_small"
+                android:rating="2.5"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/locationNameTextView" />
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/scheduleTextView"
-        style="@style/TextAppearance.Caption.Light"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/margin_small"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/clockImageView"
-        app:layout_constraintTop_toTopOf="@id/clockImageView"
-        tools:text="@tools:sample/lorem" />
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/locationReviewValueTextView"
+                style="@style/TextAppearance.Caption"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_xsmall"
+                android:textColor="@color/white"
+                app:layout_constraintBottom_toBottomOf="@id/locationReviewRatingBar"
+                app:layout_constraintStart_toEndOf="@+id/locationReviewRatingBar"
+                app:layout_constraintTop_toTopOf="@+id/locationReviewRatingBar"
+                tools:text="2.5" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/phoneImageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/margin_small"
-        android:layout_marginTop="@dimen/margin_small"
-        android:src="@drawable/ic_phone"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/scheduleTextView" />
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/pictureLabelTextView"
+            style="@style/TextAppearance.Body.Bold"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin_small"
+            android:layout_marginTop="@dimen/margin_medium"
+            android:text="@string/pictures"
+            android:textColor="@color/topaz"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/titleBarConstraintLayout" />
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/phoneTextView"
-        style="@style/TextAppearance.Caption.Light"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/margin_small"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/phoneImageView"
-        app:layout_constraintTop_toTopOf="@id/phoneImageView"
-        tools:text="@tools:sample/lorem" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/locationPicturesRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_xsmall"
+            app:layout_constraintTop_toBottomOf="@id/pictureLabelTextView"
+            tools:itemCount="1"
+            tools:listitem="@layout/item_location_inner_picture" />
 
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/pinImageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/margin_small"
-        android:layout_marginTop="@dimen/margin_small"
-        android:src="@drawable/ic_pin"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/phoneTextView" />
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/aboutLabelTextView"
+            style="@style/TextAppearance.Body.Bold"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin_small"
+            android:layout_marginTop="@dimen/margin_small"
+            android:text="@string/about"
+            android:textColor="@color/topaz"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/locationPicturesRecyclerView" />
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/pinTextView"
-        style="@style/TextAppearance.Caption.Light"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/margin_small"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/pinImageView"
-        app:layout_constraintTop_toTopOf="@id/pinImageView"
-        tools:text="@tools:sample/lorem" />
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/aboutLocationTextView"
+            style="@style/TextAppearance.Body"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin_small"
+            android:layout_marginTop="@dimen/margin_small"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/aboutLabelTextView"
+            tools:text="@tools:sample/lorem" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/clockImageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin_small"
+            android:layout_marginTop="@dimen/margin_small"
+            android:src="@drawable/ic_time"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/aboutLocationTextView" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/scheduleTextView"
+            style="@style/TextAppearance.Caption.Light"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin_small"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/clockImageView"
+            app:layout_constraintTop_toTopOf="@id/clockImageView"
+            tools:text="@tools:sample/lorem" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/phoneImageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin_small"
+            android:layout_marginTop="@dimen/margin_normal"
+            android:src="@drawable/ic_phone"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/scheduleTextView" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/phoneTextView"
+            style="@style/TextAppearance.Caption.Light"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin_small"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/phoneImageView"
+            app:layout_constraintTop_toTopOf="@id/phoneImageView"
+            tools:text="@tools:sample/us_phones" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/pinImageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin_small"
+            android:layout_marginTop="@dimen/margin_normal"
+            android:src="@drawable/ic_pin"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/phoneTextView" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/addressTextView"
+            style="@style/TextAppearance.Caption.Light"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin_small"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/pinImageView"
+            app:layout_constraintTop_toTopOf="@id/pinImageView"
+            tools:text="@tools:sample/cities" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/reviewsLabelTextView"
+            style="@style/TextAppearance.Body.Bold"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin_small"
+            android:layout_marginTop="@dimen/margin_medium"
+            android:text="@string/reviews"
+            android:textColor="@color/topaz"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/addressTextView" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/userReviewRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/reviewsLabelTextView"
+            tools:itemCount="3"
+            tools:listitem="@layout/item_user_review" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>

@@ -27,8 +27,8 @@ class HomeViewModel
 
     fun loadLocations() {
         locations.clear()
+        _locationsLiveData.postLoading()
         viewModelScope.launch {
-            _locationsLiveData.postLoading()
             val result = runCatching { repository.requestLocations() }
             result.onSuccess { response ->
                 loadImages(response)

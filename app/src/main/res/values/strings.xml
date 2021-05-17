@@ -9,4 +9,6 @@
     <string name="profile">Profile</string>
     <string name="pictures">Pictures</string>
     <string name="about">About</string>
+    <string name="reviews">Reviews</string>
+    <string name="return_action">Return</string>
 </resources>
