@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <string name="something_went_wrong">" 何かがうまくいかなかった"</string>
-    <string name="try_again">"再試行 "</string>
-    <string name="service_unavailable">サービス利用不可</string>
-    <string name="ok">OK</string>
-    <string name="map">地図</string>
-    <string name="profile">プロフィール</string>
-</resources>

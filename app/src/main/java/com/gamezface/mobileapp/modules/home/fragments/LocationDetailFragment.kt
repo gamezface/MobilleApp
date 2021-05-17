@@ -91,7 +91,7 @@ class LocationFragment : Fragment(), CoroutineScope by MainScope() {
                 locationReviewRatingBar.rating = location.review
                 locationReviewValueTextView.text = location.review.toString()
                 aboutLocationTextView.text = location.about
-                scheduleTextView.text = location.schedule.toString()
+                scheduleTextView.text = mapSchedule(locationDetailViewModel.handleScheduleText(location.schedule))
                 phoneTextView.text = location.phone
                 addressTextView.text = location.adress
             }

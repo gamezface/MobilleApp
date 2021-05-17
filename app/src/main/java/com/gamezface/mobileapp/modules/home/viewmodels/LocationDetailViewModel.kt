@@ -4,12 +4,10 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.gamezface.mobileapp.core.utils.ViewState
-import com.gamezface.mobileapp.core.utils.postError
-import com.gamezface.mobileapp.core.utils.postLoading
-import com.gamezface.mobileapp.core.utils.postSuccess
+import com.gamezface.mobileapp.core.utils.*
 import com.gamezface.mobileapp.modules.home.models.Image
 import com.gamezface.mobileapp.modules.home.models.Location
+import com.gamezface.mobileapp.modules.home.models.Schedules
 import com.gamezface.mobileapp.modules.home.repository.HomeRepository
 import com.gamezface.mobileapp.modules.home.repository.ImageRepository
 import kotlinx.coroutines.launch
@@ -51,6 +49,14 @@ class LocationDetailViewModel
             }.onFailure { throwable ->
                 _imageListLiveData.postError(throwable)
             }
+        }
+    }
+
+    fun handleScheduleText(schedule: Any): Schedules? {
+        return if (schedule is List<*>) {
+            GsonUtil().fromJson<Schedules>(schedule[0].toString())
+        } else {
+            GsonUtil().fromJson<Schedules>(schedule.toString())
         }
     }
 

@@ -6,4 +6,15 @@
     <string name="ok">OK</string>
     <string name="map">Mapa</string>
     <string name="profile">Perfil</string>
+    <string name="pictures">Fotos</string>
+    <string name="reviews">Reviews</string>
+    <string name="about">Sobre</string>
+    <string name="sunday">Domingo</string>
+    <string name="monday">Lunes</string>
+    <string name="tuesday">Martes</string>
+    <string name="wednesday">Miércoles</string>
+    <string name="friday">Viernes</string>
+    <string name="thursday">Jueves</string>
+    <string name="saturday">Sábado</string>
+    <string name="to">a</string>
 </resources>
