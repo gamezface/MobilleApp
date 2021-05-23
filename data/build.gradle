@@ -1,0 +1,64 @@
+plugins {
+    id 'com.android.library'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+}
+
+android {
+
+    def globalConfiguration = rootProject.extensions.getByName("ext")
+
+    buildToolsVersion "30.0.3"
+
+    compileSdkVersion globalConfiguration["androidCompileSdkVersion"]
+
+    defaultConfig {
+        minSdkVersion globalConfiguration["androidMinSdkVersion"]
+        targetSdkVersion globalConfiguration["androidTargetSdkVersion"]
+        versionCode globalConfiguration["androidVersionCode"]
+        versionName globalConfiguration["androidVersionName"]
+
+        buildConfigField "String", "BASE_URL", "\"\""
+        buildConfigField "String", "IMAGE_API_URL", "\"\""
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+
+        def urlPrefix = 'hotmart-mobile-app.herokuapp'
+        def baseUrl = "\"https://" + urlPrefix + ".com/\""
+        def imageApiUrl = "\"https://picsum.photos/v2/\""
+
+        debug {
+            buildConfigField "String", "BASE_URL", baseUrl
+            buildConfigField "String", "IMAGE_API_URL", imageApiUrl
+        }
+        release {
+            buildConfigField "String", "BASE_URL", baseUrl
+            buildConfigField "String", "IMAGE_API_URL", imageApiUrl
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_6
+        targetCompatibility JavaVersion.VERSION_1_6
+    }
+    kotlinOptions {
+        jvmTarget = '1.6'
+    }
+}
+
+dependencies {
+
+    implementation project(':domain')
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    def dataDependencies = rootProject.ext.dataDependencies
+    def apiDependencies = rootProject.ext.apiDependencies
+    def appKaptDependencies = rootProject.ext.appKaptDependencies
+    def appTestDependencies = rootProject.ext.appTestDependencies
+
+    dataDependencies.each { v -> implementation v }
+    appKaptDependencies.each { v -> kapt v }
+    apiDependencies.each { v -> api v }
+    appTestDependencies.each { v -> testImplementation v }
+}

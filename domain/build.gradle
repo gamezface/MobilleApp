@@ -1,0 +1,41 @@
+plugins {
+    id 'com.android.library'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+}
+
+android {
+    def globalConfiguration = rootProject.extensions.getByName("ext")
+
+    buildToolsVersion "30.0.3"
+
+    compileSdkVersion globalConfiguration["androidCompileSdkVersion"]
+
+    defaultConfig {
+        minSdkVersion globalConfiguration["androidMinSdkVersion"]
+        targetSdkVersion globalConfiguration["androidTargetSdkVersion"]
+        versionCode globalConfiguration["androidVersionCode"]
+        versionName globalConfiguration["androidVersionName"]
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_6
+        targetCompatibility JavaVersion.VERSION_1_6
+    }
+    kotlinOptions {
+        jvmTarget = '1.6'
+    }
+}
+
+dependencies {
+
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    def domainDependencies = rootProject.ext.domainDependencies
+    def appKaptDependencies = rootProject.ext.appKaptDependencies
+    def appTestDependencies = rootProject.ext.appTestDependencies
+
+    domainDependencies.each { v -> implementation v }
+    appKaptDependencies.each { v -> kapt v }
+    appTestDependencies.each { v -> testImplementation v }
+}

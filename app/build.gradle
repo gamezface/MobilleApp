@@ -2,6 +2,7 @@ plugins {
     id 'com.android.application'
     id 'kotlin-android'
     id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
 }
 
 kapt {
@@ -10,24 +11,23 @@ kapt {
         option("-Xmaxerrs", 500)
     }
 }
-def globalConfiguration = rootProject.extensions.getByName("ext")
 
 android {
-    compileSdkVersion globalConfiguration["androidCompileSdkVersion"]
+
+    def globalConfiguration = rootProject.extensions.getByName("ext")
 
     buildToolsVersion "30.0.3"
 
-    defaultConfig {
-        applicationId = androidApplicationId
-        minSdkVersion androidMinSdkVersion
-        targetSdkVersion androidTargetSdkVersion
-        versionCode = androidVersionCode
-        versionName = androidVersionName
-        vectorDrawables.useSupportLibrary = true
-        multiDexEnabled true
+    compileSdkVersion globalConfiguration["androidCompileSdkVersion"]
 
-        buildConfigField "String", "BASE_URL", "\"\""
-        buildConfigField "String", "IMAGE_API_URL", "\"\""
+    defaultConfig {
+        applicationId globalConfiguration["androidApplicationId"]
+        minSdkVersion globalConfiguration["androidMinSdkVersion"]
+        targetSdkVersion globalConfiguration["androidTargetSdkVersion"]
+        versionCode globalConfiguration["androidVersionCode"]
+        versionName globalConfiguration["androidVersionName"]
+        vectorDrawables.useSupportLibrary = true
+
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -37,22 +37,14 @@ android {
 
     buildTypes {
 
-        def url_prefix = 'hotmart-mobile-app.herokuapp'
-        def base_url = "\"https://" + url_prefix + ".com/\""
-        def image_api_url = "\"https://picsum.photos/v2/\""
-
         debug {
             applicationIdSuffix ".debug"
             versionNameSuffix "-debug"
-            buildConfigField "String", "BASE_URL", base_url
-            buildConfigField "String", "IMAGE_API_URL", image_api_url
             minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
         release {
-            minifyEnabled false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-            buildConfigField "String", "BASE_URL", base_url
         }
     }
     compileOptions {
@@ -68,43 +60,16 @@ android {
 dependencies {
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    def appDependencies = rootProject.ext.appDependencies
-    def serviceDependencies = rootProject.ext.serviceDependencies
-    def testDependencies = rootProject.ext.testDependencies
+    implementation project(':domain')
+    implementation project(':data')
 
-    implementation appDependencies.coreKtx
-    implementation appDependencies.appCompat
-    implementation appDependencies.constraintLayout
-    implementation appDependencies.swipeRefreshLayout
-    implementation appDependencies.kotlinStdlib
-    implementation appDependencies.material
+    def appImplDependencies = rootProject.ext.appImplDependencies
+    def appKaptDependencies = rootProject.ext.appKaptDependencies
+    def appAnnotationProcessorDependencies = rootProject.ext.appAnnotationProcessorDependencies
+    def appTestDependencies = rootProject.ext.appTestDependencies
 
-    implementation appDependencies.lifecycleViewModelKtx
-    implementation appDependencies.lifecycleLiveDataKtx
-    implementation appDependencies.lifecycleRuntimeKtx
-    implementation appDependencies.lifecycleViewModelSavedState
-    kapt appDependencies.lifecycleCompiler
-    implementation appDependencies.navigationFragmentKtx
-    implementation appDependencies.navigationUiKtx
-
-    implementation appDependencies.coroutines
-
-    implementation appDependencies.dagger
-    kapt appDependencies.daggerCompiler
-
-    implementation appDependencies.glide
-    annotationProcessor appDependencies.glideCompiler
-
-    implementation serviceDependencies.retrofitConverter
-    implementation serviceDependencies.retrofit
-    implementation serviceDependencies.gson
-
-    implementation serviceDependencies.okHttp
-    implementation serviceDependencies.okHttpLog
-
-    testImplementation testDependencies.jUnit
-    testImplementation testDependencies.coreTesting
-    testImplementation testDependencies.core
-    testImplementation testDependencies.extJUnit
-
+    appImplDependencies.each { v -> implementation v }
+    appKaptDependencies.each { v -> kapt v }
+    appAnnotationProcessorDependencies.each { v -> annotationProcessor v }
+    appTestDependencies.each { v -> testImplementation v }
 }
