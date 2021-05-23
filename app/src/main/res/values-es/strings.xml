@@ -2,19 +2,23 @@
 <resources>
     <string name="something_went_wrong">Algo salió mal</string>
     <string name="try_again">Intentar de nuevo</string>
-    <string name="service_unavailable">"Servicio no disponible "</string>
+    <string name="service_unavailable">Servicio no disponible.</string>
     <string name="ok">OK</string>
     <string name="map">Mapa</string>
     <string name="profile">Perfil</string>
     <string name="pictures">Fotos</string>
     <string name="reviews">Reviews</string>
     <string name="about">Sobre</string>
-    <string name="sunday">Domingo</string>
-    <string name="monday">Lunes</string>
-    <string name="tuesday">Martes</string>
-    <string name="wednesday">Miércoles</string>
-    <string name="friday">Viernes</string>
-    <string name="thursday">Jueves</string>
-    <string name="saturday">Sábado</string>
+    <string-array name="weekdays_array">
+        <item>Domingo</item>
+        <item>Lunes</item>
+        <item>Tuesday</item>
+        <item>Martes</item>
+        <item>Miércoles</item>
+        <item>Jueves</item>
+        <item>Sábado</item>
+    </string-array>
     <string name="to">a</string>
+    <string name="network_error">No se pudo acceder. Verifique su conexión a Internet y vuelva a intentarlo más tarde.</string>
+    <string name="generic_error_message">Ha ocurrido un error, por favor inténtelo de nuevo más tarde.</string>
 </resources>

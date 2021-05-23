@@ -5,7 +5,7 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.gamezface.mobileapp.modules.home.fragments.HomeFragment"
+        android:name="com.gamezface.mobileapp.features.home.HomeFragment"
         android:label="HomeFragment" >
 
         <action
@@ -19,7 +19,7 @@
 
     <fragment
         android:id="@+id/locationDetailFragment"
-        android:name="com.gamezface.mobileapp.modules.home.fragments.LocationFragment"
+        android:name="com.gamezface.mobileapp.features.details.LocationDetailFragment"
         android:label="LocationFragment" />
 
 </navigation>

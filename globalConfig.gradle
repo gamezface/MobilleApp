@@ -1,0 +1,8 @@
+ext {
+    androidMinSdkVersion = 21
+    androidTargetSdkVersion = 29
+    androidCompileSdkVersion = 29
+    androidApplicationId = 'com.gamezface.mobileapp'
+    androidVersionCode = 1
+    androidVersionName = '1.0.0'
+}

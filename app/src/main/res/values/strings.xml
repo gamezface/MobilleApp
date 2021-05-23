@@ -2,7 +2,7 @@
     <string name="app_name" translatable="false">MobileApp</string>
     <string name="home" translatable="false">Home</string>
     <string name="something_went_wrong">Something went wrong</string>
-    <string name="service_unavailable">Service unavailable</string>
+    <string name="service_unavailable">Service unavailable.</string>
     <string name="try_again">Try again</string>
     <string name="ok">OK</string>
     <string name="map">Map</string>
@@ -10,12 +10,16 @@
     <string name="pictures">Pictures</string>
     <string name="about">About</string>
     <string name="reviews">Reviews</string>
-    <string name="sunday">Sunday</string>
-    <string name="monday">Monday</string>
-    <string name="tuesday">Tuesday</string>
-    <string name="wednesday">Wednesday</string>
-    <string name="thursday">Thursday</string>
-    <string name="friday">Friday</string>
-    <string name="saturday">Saturday</string>
+    <string-array name="weekdays_array">
+        <item>Sunday</item>
+        <item>Monday</item>
+        <item>Tuesday</item>
+        <item>Wednesday</item>
+        <item>Thursday</item>
+        <item>Friday</item>
+        <item>Saturday</item>
+    </string-array>
     <string name="to">to</string>
+    <string name="network_error">Unable to connect. Please check your network connection and try again.</string>
+    <string name="generic_error_message">An error occurred. Please try again later.</string>
 </resources>

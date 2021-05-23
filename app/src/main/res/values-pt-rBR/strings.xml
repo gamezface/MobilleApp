@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="something_went_wrong">Algo deu errado</string>
-    <string name="service_unavailable">Serviço indisponível no momento</string>
+    <string name="service_unavailable">Serviço indisponível no momento.</string>
     <string name="try_again">Tentar novamente</string>
     <string name="ok">OK</string>
     <string name="map">Mapa</string>
@@ -9,12 +9,16 @@
     <string name="pictures">Fotos</string>
     <string name="about">Sobre</string>
     <string name="reviews">Reviews</string>
-    <string name="sunday">Domingo</string>
-    <string name="monday">Segunda-Feira</string>
-    <string name="tuesday">Terça-Feira</string>
-    <string name="wednesday">Quarta-Feira</string>
-    <string name="friday">Sexta-Feira</string>
-    <string name="saturday">Sábado</string>
-    <string name="thursday">Quinta-feira</string>
+    <string-array name="weekdays_array">
+        <item>Domingo</item>
+        <item>Segunda-Feira</item>
+        <item>Terça-Feira</item>
+        <item>Quarta-Feira</item>
+        <item>Quinta-feira</item>
+        <item>Sexta-Feira</item>
+        <item>Sábado</item>
+    </string-array>
     <string name="to">às</string>
+    <string name="network_error">Não foi possível se conectar. Verifique sua conexão com a internet e tente novamente.</string>
+    <string name="generic_error_message">Ocorreu um erro, por favor tente novamente mais tarde.</string>
 </resources>
